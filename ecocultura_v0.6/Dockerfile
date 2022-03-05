@@ -44,6 +44,7 @@ RUN apt update -y && apt install -y gpg unzip curl && \
 
 COPY conf/ ${JANUS_HOME}/conf/
 COPY scripts/remote-connect.groovy ${JANUS_HOME}/scripts/
+COPY scripts/ecocultura.groovy ${JANUS_HOME}/scripts/
 
 FROM openjdk:8-jre-slim-buster
 
