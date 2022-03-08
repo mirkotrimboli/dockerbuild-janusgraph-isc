@@ -1,5 +1,4 @@
-cd /opt/janusgraph/bin
-./bin/gremlin.sh
+//./bin/gremlin.sh
 :remote connect tinkerpop.server conf/remote-ecocultura.yaml session
 :remote console
 
@@ -24,22 +23,16 @@ map.put("index.search.elasticsearch.client-only", "true");
 
 ConfiguredGraphFactory.createTemplateConfiguration(new MapConfiguration(map));
 ConfiguredGraphFactory.create("ConfigurationManagementGraph");
-cg = ConfiguredGraphFactory.open("ConfigurationManagementGraph");
-cg.traversal().V().count();
+g = ConfiguredGraphFactory.open("ConfigurationManagementGraph");
+g.traversal().V().count();
 
-ConfiguredGraphFactory.open("ConfigurationManagementGraph");
+//ConfiguredGraphFactory.create("ConfigurationManagementGraph2");
+//cg2 = ConfiguredGraphFactory.open("ConfigurationManagementGraph2");
+//cg.traversal().V().count();
 
-ConfiguredGraphFactory.create("ConfigurationManagementGraph2");
-cg2 = ConfiguredGraphFactory.open("ConfigurationManagementGraph2");
-cg.traversal().V().count();
-
-ConfiguredGraphFactory.open("ConfigurationManagementGraph2");
-
-ConfiguredGraphFactory.create("ConfigurationManagementGraph3");
-cg3 = ConfiguredGraphFactory.open("ConfigurationManagementGraph3");
-cg.traversal().V().count();
-
-ConfiguredGraphFactory.open("ConfigurationManagementGraph3");
+//ConfiguredGraphFactory.create("ConfigurationManagementGraph3");
+//cg3 = ConfiguredGraphFactory.open("ConfigurationManagementGraph3");
+//cg.traversal().V().count();
 
 curl -v -XPOST http://localhost:8182 -d '{"gremlin": "g.V().count()"}'
 curl -v -XPOST http://janusgraph.janusgraph:8182 -d '{"gremlin": "g.traversal().V().count()"}'
