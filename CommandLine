@@ -1,0 +1,42 @@
+cd /opt/janusgraph/bin
+./gremlin.sh
+:remote connect tinkerpop.server conf/remote-ecocultura.yaml session
+:remote console
+
+ConfiguredGraphFactory.getGraphNames();
+
+map = new HashMap();
+map.put("storage.backend","cql");
+map.put("storage.hostname","cassandra");
+map.put("storage.username", "cassandra");
+map.put("storage.password","UNztWIAAJYLj");
+map.put("storage.cql.replication-factor",3)
+map.put("index.search.backend", "elasticsearch");
+map.put("index.search.hostname", "elk-janus-coll-svc");
+map.put("index.search.elasticsearch.http.auth.type", "basic");
+map.put("index.search.elasticsearch.http.auth.basic.username", "admin");
+map.put("index.search.elasticsearch.http.auth.basic.password", "Edbc.22");
+map.put("index.search.elasticsearch.ssl.enabled", "true");
+map.put("index.search.elasticsearch.ssl.allow-self-signed-certificates", "true");
+map.put("index.search.elasticsearch.create.ext.index.number_of_shards", "1");
+map.put("index.search.elasticsearch.create.ext.index.number_of_replicas", "1");
+map.put("index.search.elasticsearch.client-only", "true");
+
+ConfiguredGraphFactory.createTemplateConfiguration(new MapConfiguration(map));
+ConfiguredGraphFactory.create("ConfigurationManagementGraph");
+cg = ConfiguredGraphFactory.open("ConfigurationManagementGraph");
+cg.traversal().V().count();
+
+ConfiguredGraphFactory.open("ConfigurationManagementGraph");
+
+ConfiguredGraphFactory.create("ConfigurationManagementGraph2");
+cg2 = ConfiguredGraphFactory.open("ConfigurationManagementGraph2");
+cg.traversal().V().count();
+
+ConfiguredGraphFactory.open("ConfigurationManagementGraph2");
+
+ConfiguredGraphFactory.create("ConfigurationManagementGraph3");
+cg3 = ConfiguredGraphFactory.open("ConfigurationManagementGraph3");
+cg.traversal().V().count();
+
+ConfiguredGraphFactory.open("ConfigurationManagementGraph3");
