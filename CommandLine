@@ -1,5 +1,5 @@
 cd /opt/janusgraph/bin
-./gremlin.sh
+./bin/gremlin.sh
 :remote connect tinkerpop.server conf/remote-ecocultura.yaml session
 :remote console
 
@@ -40,3 +40,6 @@ cg3 = ConfiguredGraphFactory.open("ConfigurationManagementGraph3");
 cg.traversal().V().count();
 
 ConfiguredGraphFactory.open("ConfigurationManagementGraph3");
+
+curl -v -XPOST http://localhost:8182 -d '{"gremlin": "g.V().count()"}'
+curl -v -XPOST http://janusgraph.janusgraph:8182 -d '{"gremlin": "g.traversal().V().count()"}'
