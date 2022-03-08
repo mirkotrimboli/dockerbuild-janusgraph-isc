@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-host: [localhost]
+host: 0.0.0.0
 port: 8182
 scriptEvaluationTimeout: 0
 channelizer: org.apache.tinkerpop.gremlin.server.channel.WsAndHttpChannelizer
