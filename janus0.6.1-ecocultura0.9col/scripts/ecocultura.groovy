@@ -28,9 +28,6 @@ ctx.logger.info("Executed once at shutdown of Gremlin Server.")
 
 // define the default TraversalSource to bind queries to - this one will be named "g".
 
-:remote connect tinkerpop.server conf/remote-objects.yaml session
-:remote console
-
 cg = ConfiguredGraphFactory.open("ecocultura")
 cg2 = ConfiguredGraphFactory.open("EDBCCULTURA")
 cg3 = ConfiguredGraphFactory.open("ecoculturaintegrazione")
