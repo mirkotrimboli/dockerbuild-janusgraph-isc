@@ -67,7 +67,7 @@ RUN groupadd -r janusgraph --gid=999 && \
     useradd -r -g janusgraph --uid=999 -d ${JANUS_DATA_DIR} janusgraph && \
     apt-get update -y && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends krb5-user && \
-    apt-get install -y vim nano && \
+    apt-get install -y vim nano curl && \
     rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /opt/janusgraph/ /opt/janusgraph/
